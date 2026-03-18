@@ -1,0 +1,154 @@
+<html>
+  <head>
+   <link rel="stylesheet" href="style.css">
+
+    <title>Panta Mig!</title>
+
+      <link rel="icon" type="image/x-icon" href="panta mig! 2.jpg">
+
+      <script src="https://unpkg.com/html5-qrcode"></script>
+  </head>
+     <body>
+
+        <div id="bg1">
+          <img src="panta mig hehe.png" alt="battle" id="bg">
+</div>
+            
+      <div id="menu-container">
+        <ul id="main-menu">
+    
+    <li  class="list-item" ><a href=""><button class="glow-on-hover">Home</button></a></li>
+    <li  class="list-item"><a href=""><button class="glow-on-hover">QR-Code-skaner</button></a></li>
+    <li class="list-item"><a href=""><button class="glow-on-hover">Panta mig! location</button></a></li>
+    <li  class="list-item" ><a href=""><button class="glow-on-hover">Saldo</button></a></li>
+
+
+
+
+
+
+
+</ul>
+</div> 
+
+
+
+<body>
+
+
+<h1 id="qr-code-name">QR Code Scanner</h1>
+
+<div id="reader"></div>
+
+
+<script>
+
+let lastResult = ""
+
+function onScanSuccess(decodedText){
+
+if(decodedText !== lastResult){
+
+lastResult = decodedText
+
+document.getElementById("result").innerText =
+"Scanned: " + decodedText
+
+console.log(decodedText)
+
+}
+
+}
+
+let scanner = new Html5QrcodeScanner(
+"reader",
+{ fps:10, qrbox:250 }
+)
+
+scanner.render(onScanSuccess)
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container" id="gameContainer">
+  <!-- Knappar genereras här med JS -->
+</div>
+
+<div id="stars2"></div>
+
+<script>
+ 
+  // --- Stjärnor bakgrund ---
+  const stars = document.getElementById("stars2");
+  for(let i=0; i<100; i++){
+    const star = document.createElement("div");
+    star.className = "star2";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.width = star.style.height = Math.random() * 3 + "px";
+    star.style.animationDuration = 2 + Math.random() * 3 + "s";
+    stars.appendChild(star);
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
