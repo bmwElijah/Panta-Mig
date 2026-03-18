@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+ 
+
+<link rel="stylesheet" href="style.css">
+
+    <title>Panta Mig!</title>
+
+      <link rel="icon" type="image/x-icon" href="panta mig! 2.jpg">
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+        <div id="bg1">
+          <img src="panta mig hehe.png" alt="battle" id="bg">
+</div>
+            
+      <div id="menu-container">
+        <ul id="main-menu">
+    
+    <li  class="list-item" ><a href="/index.html"><button class="glow-on-hover">Home</button></a></li>
+    <li  class="list-item"><a href="/Panta mig-QR Code Scanner.html"><button class="glow-on-hover">QR-Code-skaner</button></a></li>
+    <li class="list-item"><a href="/Panta Mig-location.html"><button class="glow-on-hover">Panta mig! location</button></a></li>
+    <li  class="list-item" ><a href="/Panta Mig-saldo.html"><button class="glow-on-hover">Saldo</button></a></li>
+
+
+
+
+
+
+
+</ul>
+</div> 
+
+
+
+
+
+
+
+
+<div class="container" id="gameContainer">
+  <!-- Knappar genereras här med JS -->
+</div>
+
+<div id="stars2"></div>
+
+<script>
+ 
+  // --- Stjärnor bakgrund ---
+  const stars = document.getElementById("stars2");
+  for(let i=0; i<100; i++){
+    const star = document.createElement("div");
+    star.className = "star2";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.width = star.style.height = Math.random() * 3 + "px";
+    star.style.animationDuration = 2 + Math.random() * 3 + "s";
+    stars.appendChild(star);
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+    
+  <p class="body" id="saldo">Saldo: 0 kr</p>
+  <p class="body" id="meddelande"></p>
+
+  <h2 class="body">Skanna en plastpåse:</h2>
+<div id="gameContainer">
+  <button class="body" onclick="minWallet.skannaQR(5)">Plastpåse liten (5 kr)</button>
+  <button class="body" onclick="minWallet.skannaQR(10)">Plastpåse mellan (10 kr)</button>
+  <button class="body" onclick="minWallet.skannaQR(20)">Plastpåse stor (20 kr)</button>
+  <button class="body" onclick="minWallet.hämtaPengar()">Hämta pengar</button>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<script>
+class Wallet {
+  constructor() {
+    this.saldo = 0; // startsaldo
+  }
+
+  skannaQR(belopp) {
+    this.saldo += belopp;
+    document.getElementById("meddelande").innerText =
+      `Du fick ${belopp} kr för din plastpåse!`;
+    this.uppdateraSaldo();
+  }
+
+  hämtaPengar() {
+    if (this.saldo > 0) {
+      alert(`Du får ${this.saldo} kr! 💸`);
+      this.saldo = 0;
+      this.uppdateraSaldo();
+      document.getElementById("meddelande").innerText = "";
+    } else {
+      alert("Inget saldo att hämta 😅");
+    }
+  }
+
+  uppdateraSaldo() {
+    document.getElementById("saldo").innerText = `Saldo: ${this.saldo} kr`;
+  }
+}
+
+// Skapa en instans av klassen
+const minWallet = new Wallet();
+</script>
+
+
+
+<style>
+.body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+#meddelande {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+}
+
+/* Gör container för knapparna centrerad */
+#gameContainer {
+  display: flex;           /* Flexbox */
+  flex-direction: column;  /* Stapla vertikalt */
+  align-items: center;     /* Centrera horisontellt */
+  justify-content: center; /* Centrera vertikalt om du vill */
+  gap: 10px;               /* Mellanrum mellan knappar */
+  margin-top: 20px;        /* Lite toppmarginal */
+}
+
+/* Alternativt om knapparna ligger direkt i body */
+.body {
+  display: block;
+  margin: 10px auto; /* auto-sidomarginal centrerar block-element */
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
