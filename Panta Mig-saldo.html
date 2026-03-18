@@ -27,10 +27,10 @@
       <div id="menu-container">
         <ul id="main-menu">
     
-    <li  class="list-item" ><a href="/index.html"><button class="glow-on-hover">Home</button></a></li>
-    <li  class="list-item"><a href="/Panta mig-QR Code Scanner.html"><button class="glow-on-hover">QR-Code-skaner</button></a></li>
-    <li class="list-item"><a href="/Panta Mig-location.html"><button class="glow-on-hover">Panta mig! location</button></a></li>
-    <li  class="list-item" ><a href="/Panta Mig-saldo.html"><button class="glow-on-hover">Saldo</button></a></li>
+    <li class="list-item"><a href="index.html"><button class="glow-on-hover">Home</button></a></li>
+    <li class="list-item"><a href="Panta mig-QR Code Scanner.html"><button class="glow-on-hover">QR-Code-skaner</button></a></li>
+    <li class="list-item"><a href="Panta Mig-location.html"><button class="glow-on-hover">Panta mig! location</button></a></li>
+    <li class="list-item"><a href="Panta Mig-saldo.html"><button class="glow-on-hover">Saldo</button></a></li>
 
 
 
@@ -84,10 +84,10 @@
 
   <h2 class="body">Skanna en plastpåse:</h2>
 <div id="gameContainer">
-  <button class="body" onclick="minWallet.skannaQR(5)">Plastpåse liten (5 kr)</button>
-  <button class="body" onclick="minWallet.skannaQR(10)">Plastpåse mellan (10 kr)</button>
-  <button class="body" onclick="minWallet.skannaQR(20)">Plastpåse stor (20 kr)</button>
-  <button class="body" onclick="minWallet.hämtaPengar()">Hämta pengar</button>
+  <button class="button"  class="body" onclick="minWallet.skannaQR(5)">Plastpåse liten (5 kr)</button>
+  <button class="button"  class="body" onclick="minWallet.skannaQR(10)">Plastpåse mellan (10 kr)</button>
+  <button class="button"  class="body" onclick="minWallet.skannaQR(20)">Plastpåse stor (20 kr)</button>
+  <button class="button"  class="body" onclick="minWallet.hämtaPengar()">Hämta pengar</button>
 </div>
 
   <script src="script.js"></script>
@@ -136,10 +136,15 @@ const minWallet = new Wallet();
   margin-top: 50px;
 }
 
-button {
+.button {
   padding: 10px 20px;
   margin: 5px;
   cursor: pointer;
+  background-color: aquamarine;
+}
+
+.button:hover {
+  background-color: rgb(93, 209, 170);
 }
 
 #meddelande {
