@@ -84,23 +84,69 @@ iframe {
 
   <!-- Vänster: Lindängen Willys -->
   <div class="map">
-    <h3>Lindängen Centrum – Willys</h3>
+    <h3 class="row">Lindängen Centrum – Willys - 🟢 tom</h3>
     <iframe src="https://www.google.com/maps?q=Willys+Lindängen+Malmö&output=embed"></iframe>
   </div>
 
   <!-- Mitten: Nydala Coop -->
   <div class="map">
-    <h3>Nydala Torg – Coop</h3>
+    <h3 class="row">Nydala Torg – Coop - 🟡 mellan</h3>
     <iframe src="https://www.google.com/maps?q=Coop+Nydala+Malmö&output=embed"></iframe>
   </div>
 
   <!-- Höger: Hermodsdal ICA -->
   <div class="map">
-    <h3>Hermodsdal – ICA</h3>
+    <h3 class="row">Hermodsdal – ICA - 🔴 full</h3>
     <iframe src="https://www.google.com/maps?q=ICA+Hermodsdal+Malmö&output=embed"></iframe>
   </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+let elements = document.getElementsByClassName("row");
+
+// Statusalternativ som loopar
+let statuses = ["🔴 full", "🟡 mellan", "🟢 tom"];
+let statusIndexes = [0, 1, 2]; // startstatus för varje rad
+
+// olika hastigheter per rad
+let speeds = [4000, 5000, 6100];
+
+// fasta namn
+let names = ["Lindängen Centrum – Willys ", "Nydala Torg – Coop ", "Hermodsdal – ICA "];
+
+for (let i = 0; i < elements.length; i++) {
+    setInterval(() => {
+        // uppdatera status
+        elements[i].innerText = names[i] + " - " + statuses[statusIndexes[i]];
+        statusIndexes[i] = (statusIndexes[i] + 1) % statuses.length;
+    }, speeds[i]);
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
